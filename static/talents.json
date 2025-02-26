@@ -1,0 +1,75 @@
+{
+  "Rime": {
+    "talents": []
+  },
+  "Sylvie": {
+    "talents": [
+      {
+        "name": "Nettle to the Petal",
+        "row": 1,
+        "col": 1,
+        "cost": 2,
+        "effect": [
+          "The Cooldown of your Life Petal is reduced by 2 seconds each time you deal damage with Nettlebold and 4 seconds if it critically strikes.",
+          "Passive: Your healing is increased by 25% on playes with 30% of less health."
+        ]
+      },
+      {
+        "name": "Synchronized Fluttering",
+        "row": 1,
+        "col": 2,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Symbiosis",
+        "row": 1,
+        "col": 3,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Sprouting Nettles",
+        "row": 2,
+        "col": 1,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Elusive Wildling",
+        "row": 2,
+        "col": 2,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Bluey's Gambit",
+        "row": 2,
+        "col": 3,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Bursting Petals",
+        "row": 3,
+        "col": 1,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Flower Power",
+        "row": 3,
+        "col": 2,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Bloomin' Boomshrooms",
+        "row": 3,
+        "col": 3,
+        "cost": 2,
+        "effect": []
+      }
+    ]
+  }
+}
