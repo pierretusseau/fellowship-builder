@@ -1,6 +1,271 @@
 {
+  "Helena": {
+    "talents": [
+      {
+        "name": "The Best Defense",
+        "row": 1,
+        "col": 1,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Shield Mastery",
+        "row": 1,
+        "col": 2,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Sword & Board",
+        "row": 1,
+        "col": 3,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Aftershock",
+        "row": 2,
+        "col": 1,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Skull Cracker",
+        "row": 2,
+        "col": 2,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Front Line Defender",
+        "row": 2,
+        "col": 3,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Second Wind",
+        "row": 3,
+        "col": 1,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Greater Shockwave",
+        "row": 3,
+        "col": 2,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Gleaming Shield",
+        "row": 3,
+        "col": 3,
+        "cost": 3,
+        "effect": []
+      }
+    ]
+  },
+  "Meiko": {
+    "talents": [
+      {
+        "name": "Resonance of Earth",
+        "row": 1,
+        "col": 1,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Thunder Kick",
+        "row": 1,
+        "col": 2,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Spirited Advance",
+        "row": 1,
+        "col": 3,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Earthwell",
+        "row": 2,
+        "col": 1,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Splitstream",
+        "row": 2,
+        "col": 2,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Harsh Winds",
+        "row": 2,
+        "col": 3,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Serene Resillience",
+        "row": 3,
+        "col": 1,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Earthbourne",
+        "row": 3,
+        "col": 2,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Forbidden Technique",
+        "row": 3,
+        "col": 3,
+        "cost": 3,
+        "effect": []
+      }
+    ]
+  },
   "Rime": {
-    "talents": []
+    "talents": [
+      {
+        "name": "Chillblain",
+        "row": 1,
+        "col": 1,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Coalescing Ice",
+        "row": 1,
+        "col": 2,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Glacial Assault",
+        "row": 1,
+        "col": 3,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Unrelenting Ice",
+        "row": 2,
+        "col": 1,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Icy Flow",
+        "row": 2,
+        "col": 2,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Tundra Guard",
+        "row": 2,
+        "col": 3,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Avalanche",
+        "row": 3,
+        "col": 1,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Wisdom of the North",
+        "row": 3,
+        "col": 2,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Soulfrost Torrent",
+        "row": 3,
+        "col": 3,
+        "cost": 3,
+        "effect": []
+      }
+    ]
+  },
+  "Tariq": {
+    "talents": [
+      {
+        "name": "Left Hand Path",
+        "row": 1,
+        "col": 1,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Far Beyond Driven",
+        "row": 1,
+        "col": 2,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Square Hammer",
+        "row": 1,
+        "col": 3,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Pneuma",
+        "row": 2,
+        "col": 1,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Bloodline",
+        "row": 2,
+        "col": 2,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Mouth of War",
+        "row": 2,
+        "col": 3,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Ride the Lightning",
+        "row": 3,
+        "col": 1,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Schism",
+        "row": 3,
+        "col": 2,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Blood & Thunder",
+        "row": 3,
+        "col": 3,
+        "cost": 3,
+        "effect": []
+      }
+    ]
   },
   "Sylvie": {
     "talents": [
@@ -32,42 +297,109 @@
         "name": "Sprouting Nettles",
         "row": 2,
         "col": 1,
-        "cost": 2,
+        "cost": 1,
         "effect": []
       },
       {
         "name": "Elusive Wildling",
         "row": 2,
         "col": 2,
-        "cost": 2,
+        "cost": 1,
         "effect": []
       },
       {
         "name": "Bluey's Gambit",
         "row": 2,
         "col": 3,
-        "cost": 2,
+        "cost": 1,
         "effect": []
       },
       {
         "name": "Bursting Petals",
         "row": 3,
         "col": 1,
-        "cost": 2,
+        "cost": 3,
         "effect": []
       },
       {
         "name": "Flower Power",
         "row": 3,
         "col": 2,
-        "cost": 2,
+        "cost": 3,
         "effect": []
       },
       {
         "name": "Bloomin' Boomshrooms",
         "row": 3,
         "col": 3,
+        "cost": 3,
+        "effect": []
+      }
+    ]
+  },
+  "Vigour": {
+    "talents": [
+      {
+        "name": "Epiphany",
+        "row": 1,
+        "col": 1,
         "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Enduring Light",
+        "row": 1,
+        "col": 2,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Ruptured Soul",
+        "row": 1,
+        "col": 3,
+        "cost": 2,
+        "effect": []
+      },
+      {
+        "name": "Beacon in the Dark",
+        "row": 2,
+        "col": 1,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Sacred Barrier",
+        "row": 2,
+        "col": 2,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Expansive Mind",
+        "row": 2,
+        "col": 3,
+        "cost": 1,
+        "effect": []
+      },
+      {
+        "name": "Master of Triage",
+        "row": 3,
+        "col": 1,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Meticulous Runesmith",
+        "row": 3,
+        "col": 2,
+        "cost": 3,
+        "effect": []
+      },
+      {
+        "name": "Grand Design",
+        "row": 3,
+        "col": 3,
+        "cost": 3,
         "effect": []
       }
     ]

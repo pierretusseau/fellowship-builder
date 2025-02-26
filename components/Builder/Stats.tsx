@@ -12,20 +12,20 @@ import useStore from '@/hooks/useStore'
 function Stats() {
   const stats = useStore(useCharacterStore, (state) => state.stats)
 
-  if (!stats || !stats.length) return null
-
-  const statsLinesObject = stats.reduce<Record<number, string[]>>((acc, stat: Stat) => {
-    acc[stat.priority] = acc[stat.priority] || [];
-    acc[stat.priority].push(stat.name);
-    return acc;
-  }, {})
-  const statsLines = Object.entries(statsLinesObject)
+  const statsLinesObject = stats && stats.length
+    ? stats.reduce<Record<number, string[]>>((acc, stat: Stat) => {
+      acc[stat.priority] = acc[stat.priority] || [];
+      acc[stat.priority].push(stat.name);
+      return acc;
+    }, {})
+    : null
+  const statsLines = Object.entries(statsLinesObject || []).reverse()
 
   return (
     <div>
       <div>Stats prio: </div>
       <div>
-        {statsLines.reverse().map(([priority, names], index, arr) => {
+        {statsLines.map(([priority, names], index, arr) => {
           const priorityNumber = parseInt(priority)
           return <div key={`priority-line-${priority}`} className="flex gap-4">
             {/* {priority} */}
@@ -35,7 +35,11 @@ function Stats() {
                   key={`stat-line-${index}-stat-${ind}`}
                   className="flex items-center w-full bg-neutral-900 justify-center gap-2"
                 >
-                  <div className={(names.length === 1 && priorityNumber >= statsLines.length - 1) || names.length === 0 ? 'opacity-0 pointer-events-none' : ''}>
+                  <div className={
+                    (names.length === 1 && priorityNumber >= statsLines.length - 1) || names.length === 0
+                      ? 'opacity-0 pointer-events-none'
+                      : ''
+                  }>
                     <IconButton
                       onClick={() => incrementStatPrio(stat)}
                       color="primary"

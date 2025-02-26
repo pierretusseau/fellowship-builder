@@ -1,9 +1,14 @@
 import { create } from "zustand"
-import {
-  persist
-} from 'zustand/middleware'
 
+export type urlBuild = {
+  [key: string]: string | string[] | undefined
+}
 export type Character = string | undefined
+export type CharacterTalents = {
+  [key: string]: {
+    talents: Talent[]
+  }
+}
 export type Talent = {
   name: string,
   row: number,
@@ -29,7 +34,7 @@ const baseStats = [
   { name: "Haste", priority: 0 },
   { name: "Spirit", priority: 0 },
 ] as Stat[]
-const baseGems = [
+export const baseGems = [
   { name: 'Ruby', color: "red", quantity: 0 },
   { name: 'Amethyst', color: "purple", quantity: 0 },
   { name: 'Topaz', color: "yellow", quantity: 0 },
@@ -40,26 +45,52 @@ const baseGems = [
 
 // Store creation
 /*----------------------------------------------------*/
+// const useCharacterStore = create(
+//   persist(
+//     // (set, get) => ({
+//     () => ({
+//       character: undefined as Character,
+//       talents: [] as Talents,
+//       stats: baseStats,
+//       gems: baseGems,
+//     }),
+//     {
+//       name: 'fellowship-builder-char', // name of the item in the storage (must be unique)
+//       // storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+//     },
+//   ),
+// )
 const useCharacterStore = create(
-  persist(
     // (set, get) => ({
     () => ({
       character: undefined as Character,
       talents: [] as Talents,
       stats: baseStats,
-      gems: baseGems,
-    }),
-    {
-      name: 'fellowship-builder-char', // name of the item in the storage (must be unique)
-      // storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
-    },
-  ),
+      gems: baseGems
+    })
 )
 
 export default useCharacterStore
 
 // Store manipulation methods
 /*----------------------------------------------------*/
+// URL Handler
+export const setBuildFromUrl = (url: urlBuild) => {
+  const character = `${String(url.character).charAt(0).toUpperCase()}${String(url.character).slice(1)}` as Character
+  console.log(character)
+  if (!character) return
+  // const urlTalents = typeof url.talents === 'string' && url.talents?.split('.').map(talent => {
+  //   const [row, col] = talent.split('')
+  //   return talentsData[character].find((t: Talent) => t.row === parseInt(row) && t.col === parseInt(col))
+  // })
+  useCharacterStore.setState(() => ({
+    character: character,
+    // talents: urlTalents as Talents,
+    talents: [] as Talents,
+    stats: baseStats,
+    gems: baseGems,
+  }))
+}
 // Character
 export const setCharacter = (character: Character) => {
   useCharacterStore.setState(() => ({
