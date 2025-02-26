@@ -7,11 +7,12 @@ import type { Stat } from '@/store/useCharacterStore'
 import { IconButton } from '@mui/material'
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import useStore from '@/hooks/useStore'
 
 function Stats() {
-  const stats = useCharacterStore((state) => state.stats)
+  const stats = useStore(useCharacterStore, (state) => state.stats)
 
-  if (!stats.length) return null
+  if (!stats || !stats.length) return null
 
   const statsLinesObject = stats.reduce<Record<number, string[]>>((acc, stat: Stat) => {
     acc[stat.priority] = acc[stat.priority] || [];
@@ -32,9 +33,9 @@ function Stats() {
               {names.map((stat, ind) => (
                 <div
                   key={`stat-line-${index}-stat-${ind}`}
-                  className="flex gap-1 items-center w-full bg-neutral-900 justify-center gap-2"
+                  className="flex items-center w-full bg-neutral-900 justify-center gap-2"
                 >
-                  <div className={(priorityNumber >= statsLines.length - 1) && names.length > 0 ? 'opacity-0 pointer-events-none' : ''}>
+                  <div className={(names.length === 1 && priorityNumber >= statsLines.length - 1) || names.length === 0 ? 'opacity-0 pointer-events-none' : ''}>
                     <IconButton
                       onClick={() => incrementStatPrio(stat)}
                       color="primary"

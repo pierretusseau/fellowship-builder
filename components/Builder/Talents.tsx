@@ -4,6 +4,7 @@ import useCharacterStore, {
 } from '@/store/useCharacterStore'
 import type { Character, Talent, Talents } from '@/store/useCharacterStore'
 import talentsData from '@/static/talents.json' assert { type: "json" }
+import useStore from '@/hooks/useStore'
 
 type CharacterTalents = {
   [key: string]: {
@@ -16,7 +17,7 @@ function Talents({
 }: {
   character: Character
 }) {
-  const talents = useCharacterStore((state) => state.talents)
+  const talents = useStore(useCharacterStore, (state) => state.talents)
 
   const talentsDataTypes = talentsData as CharacterTalents
   
@@ -25,13 +26,14 @@ function Talents({
     : undefined
 
   const handleTalentToggle = useCallback((talent: Talent) => {
+    if (!talents) return
     const newTalents = talents.some(t => t.name === talent.name)
       ? talents.filter(t => t.name !== talent.name)
       : [...talents, talent]
     setTalents(newTalents.sort((a, b) => parseInt(`${a.row}${a.col}`) - parseInt(`${b.row}${b.col}`)))
   }, [talents])
   
-  if (!characterTalents) return null
+  if (!characterTalents || !talents) return null
 
   return (
     <div>

@@ -17,8 +17,9 @@ export type Stat = {
   priority: number,
 }
 export type Gem = {
+  name: string,
   color: 'red' | 'purple' | 'yellow' | 'green' | 'blue' | 'diamond',
-  priority: number,
+  // priority: number,
   quantity: number,
 }
 
@@ -28,6 +29,14 @@ const baseStats = [
   { name: "Haste", priority: 0 },
   { name: "Spirit", priority: 0 },
 ] as Stat[]
+const baseGems = [
+  { name: 'Ruby', color: "red", quantity: 0 },
+  { name: 'Amethyst', color: "purple", quantity: 0 },
+  { name: 'Topaz', color: "yellow", quantity: 0 },
+  { name: 'Emeral', color: "green", quantity: 0 },
+  { name: 'Sapphire', color: "blue", quantity: 0 },
+  { name: 'Diamond', color: "diamond", quantity: 0 }
+] as Gem[]
 
 // Store creation
 /*----------------------------------------------------*/
@@ -38,7 +47,7 @@ const useCharacterStore = create(
       character: undefined as Character,
       talents: [] as Talents,
       stats: baseStats,
-      gems: [] as Gem[],
+      gems: baseGems,
     }),
     {
       name: 'fellowship-builder-char', // name of the item in the storage (must be unique)
@@ -57,7 +66,7 @@ export const setCharacter = (character: Character) => {
     character: character,
     talents: [],
     stats: baseStats,
-    gems: [],
+    gems: baseGems,
   }))
 }
 // Talents
@@ -87,4 +96,20 @@ export const decrementStatPrio = (stat: Stat['name']) => {
 // Gems
 export const setGems = (gems: Gem[]) => {
   useCharacterStore.setState(() => ({ gems: gems }))
+}
+export const incrementGem = (gem: Gem['color']) => {
+  useCharacterStore.setState((state) => {
+    const updatedGems = state.gems.map((g) =>
+      g.color === gem? {...g, quantity: g.quantity + 1 } : g
+    )
+    return { gems: updatedGems }
+  })
+}
+export const decrementGem = (gem: Gem['color']) => {
+  useCharacterStore.setState((state) => {
+    const updatedGems = state.gems.map((g) =>
+      g.color === gem? {...g, quantity: Math.max(0, g.quantity - 1) } : g
+    )
+    return { gems: updatedGems }
+  })
 }
