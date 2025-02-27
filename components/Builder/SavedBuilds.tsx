@@ -10,7 +10,7 @@ function SavedBuilds() {
   if (builds.length === 0) return null
 
   return (
-    <div className="flex gap-4 max-w-[1200px] overflow-auto">
+    <div className="flex gap-4 max-w-[1200px] overflow-auto mb-10">
       {builds.map((build: Build, index) => {
         return <a
           key={`build-${index}-${build.timestamp}`}
