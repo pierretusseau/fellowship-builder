@@ -17,10 +17,11 @@ function Characters() {
   // const character = useStore(useCharacterStore, (state) => state.character)
 
   return (
-    <div>
+    <div className="flex gap-2 mb-4">
       {chars.map((c, index) => <Button
         key={`char-picker-char-${index}`}
         onClick={() => setCharacter(c)}
+        variant='outlined'
       >
         {c}
       </Button>)}
