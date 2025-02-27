@@ -9,8 +9,6 @@ import useStore from '@/hooks/useStore'
 function Talents() {
   const character = useStore(useCharacterStore, (state) => state.character)
   const talents = useStore(useCharacterStore, (state) => state.talents)
-  
-  // useUrlUpdater('talents', talents?.map(talent => `${talent.row}${talent.col}`).join('.'))
 
   const talentsDataTypes = talentsData as CharacterTalents
   

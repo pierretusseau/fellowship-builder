@@ -16,6 +16,8 @@ import Characters from '@/components/Builder/Characters'
 import type { urlBuild, Stat, Talent, CharacterTalents, Gem } from '@/store/useCharacterStore'
 import Url from '@/components/Builder/Url'
 import talentsData from '@/static/talents.json' assert { type: "json" }
+import SavedBuilds from '@/components/Builder/SavedBuilds'
+import SaveButton from './Builder/SaveButton'
 
 function Builder({
   params
@@ -31,7 +33,6 @@ function Builder({
       setCharacter(params.character)
     }
     // Talents
-    // const urlTalents = talents?.map(talent => `${talent.row}${talent.col}`).join('.')
     if (params.talents && typeof params.talents === 'string' && params.character && typeof params.character === "string") {
       const talents = params.talents.split('.')
   
@@ -77,10 +78,14 @@ function Builder({
   
   return (
     <div>
+      <SavedBuilds />
       <Url />
       <Characters />
       <div className="flex flex-col gap-5">
-        <div className="text-4xl">{character || 'Select a char'}</div>
+        <div className="flex items-center justify-between">
+          <div className="text-4xl">{character || 'Select a char'}</div>
+          <SaveButton />
+        </div>
         {character && <div className="flex flex-col gap-5">
           <Talents />
           <Stats />

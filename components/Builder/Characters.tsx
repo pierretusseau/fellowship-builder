@@ -24,7 +24,6 @@ function Characters() {
       >
         {c}
       </Button>)}
-      {/* <Button onClick={() => setCharacter(undefined)}>Reset</Button> */}
     </div>
   )
 }

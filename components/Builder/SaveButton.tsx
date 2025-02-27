@@ -1,16 +1,30 @@
-import React from 'react'
-import useCharacterStore from '@/store/useCharacterStore'
-import type { Stat } from '@/store/useCharacterStore'
-import CopyAllIcon from '@mui/icons-material/CopyAll';
+import React, { useCallback, useMemo } from 'react'
+import SaveIcon from '@mui/icons-material/Save';
+import { Button } from '@mui/material'
+import useCharacterStore, { Stat, Talent } from '@/store/useCharacterStore';
+import { addSavedBuild } from '@/store/useSavedBuilds';
 
-function Url() {
-  // const { character, talents, stats, gems } = useUrlStore()
+function SaveButton() {
   const character = useCharacterStore((state) => state.character)
   const talents = useCharacterStore((state) => state.talents)
   const stats = useCharacterStore((state) => state.stats)
   const gems = useCharacterStore((state) => state.gems)
+  
+  const urlSearchParams = useMemo(() => new URLSearchParams(), [])
 
-  const urlSearchParams = new URLSearchParams()
+  const handleSaveBuild = useCallback(() => {
+    if (!character) return
+    const talentsCode = talents.map((t: Talent) => {
+      return `${t.row}.${t.col}`
+    }).join('/')
+    const url = `?${urlSearchParams.toString()}`
+    addSavedBuild({
+      character: character,
+      talentsCode: talentsCode,
+      url: url,
+      timestamp: new Date().toISOString(),
+    })
+  }, [character, talents, urlSearchParams],)
   if (character) {
     urlSearchParams.set('character', character)
   } else {
@@ -40,25 +54,19 @@ function Url() {
       }).join('*')
       urlSearchParams.set('gems', urlGems)
   }
-  window.history.pushState(null, '', `?${urlSearchParams.toString()}`)
-
-  const handleCopy = () => {
-    console.log('copy', urlSearchParams.toString())
-  }
 
   if (!character) return null
-
+  
   return (
-    <div
-      className="p-2 bg-neutral-800 rounded-lg mb-4 select-none max-w-[800px] overflow-hidden whitespace-nowrap pr-12 relative opacity-0 pointer-events-none"
+    <Button
+      startIcon={<SaveIcon />}
+      color='success'
+      variant='outlined'
+      onClick={() => handleSaveBuild()}
     >
-      <div className="overflow-hidden">{`https://${window.location.hostname}/?${urlSearchParams.toString()}`}</div>
-      <div
-        className="absolute top-1 right-1 cursor-pointer bg-slate-200 w-8 h-8 rounded-lg text-neutral-950 text-center pl-[0.5px] pt-[2px]"
-        onClick={() => handleCopy()}
-      ><CopyAllIcon /></div>
-    </div>
+      Save 
+    </Button>
   )
 }
 
-export default Url
+export default SaveButton
