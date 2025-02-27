@@ -46,8 +46,9 @@ function Talents() {
           key={`talent-${talent.row}-${talent.col}`}
           onClick={() => handleTalentToggle(talent)}
           className={`${[
-            'cursor-pointer',
-            talents.some((t) => t.name === talent.name) && 'text-green-400',
+            'cursor-pointer transition',
+            'px-2 py-4 bg-neutral-900 rounded-lg text-center hover:bg-neutral-800',
+            talents.some((t) => t.name === talent.name) && 'bg-green-700 hover:bg-green-600',
             talentsScore + talent.cost > 8 && !talents.some((t) => t.name === talent.name) && 'opacity-25 pointer-events-none'
           ].join(' ')}`}
         >
